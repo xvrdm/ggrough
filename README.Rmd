@@ -40,7 +40,14 @@ get_rough_chart(p, options, width = 12.5, height = 5)
 
 ## How to install
 
+```{r, eval=FALSE, echo=TRUE}
+install.packages("devtools") # if you have not installed "devtools" package
+devtools::install_github("xvrdm/ggrough")
+```
+
 ## How to use
+
+Call `get_rough_chart()`, using your ggplot2 chart as the first arguments. See the options to customize your output.
 
 ## Word of caution
 

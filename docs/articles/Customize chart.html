@@ -72,7 +72,7 @@
       <h1>Customize your chart</h1>
                         <h4 class="author">X.A.</h4>
             
-            <h4 class="date">2018-06-10</h4>
+            <h4 class="date">2018-06-11</h4>
       
       
       <div class="hidden name"><code>Customize chart.Rmd</code></div>
@@ -164,6 +164,21 @@
 <p>The first argument of <code>get_rough_chart</code> is the <code>ggplot2</code> chart object that you want to modify.</p>
 <p>The second argument is a list of lists of <code>ggrough</code> options (one list for <code>defaults</code>, one list for <code>Background</code> and one list per <code>geom</code> type). The options you can use are listed below. Things not listed (e.g colors, alpha…) are inherited from the <code>ggplot2</code> chart.</p>
 <p>Lastly, you have direct access to two helper arguments that let you change the font (<code>family</code>) and the font size (<code>font_size_booster</code>).</p>
+<div id="how-to-write-the-options-list" class="section level2">
+<h2 class="hasAnchor">
+<a href="#how-to-write-the-options-list" class="anchor"></a>How to write the <code>options</code> list</h2>
+<p>The example below changes:</p>
+<ul>
+<li>
+<code>roughness</code> for the <code>Background</code> (<code>plot.background</code>, <code>panel.background</code>, <code>panel.grid</code>…)</li>
+<li>
+<code>fill_style</code>, <code>bowing</code> and <code>roughness</code> for all <code>GeomCol</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">options &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">Background=</span><span class="kw">list</span>(<span class="dt">roughness=</span><span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">GeomCol=</span><span class="kw">list</span>(<span class="dt">fill_style=</span><span class="st">"solid"</span>, <span class="dt">bowing=</span><span class="dv">0</span>, <span class="dt">roughness=</span><span class="dv">6</span>))</a></code></pre></div>
+</div>
 <div id="fill-style-fill_style-hachure-vs-solid" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fill-style-fill_style-hachure-vs-solid" class="anchor"></a>Fill Style — <code>fill_style</code> (hachure vs solid)</h2>
@@ -224,7 +239,7 @@
 <a href="#font-family-family" class="anchor"></a>Font family — <code>family</code>
 </h2>
 <p>You might be tempted to use brush and cursive font more than usual. If you are using a theme, it can be a pain to change the font family. If all you want is to replace all font by a chosen family, you can do it with the <code>family</code> argument in <code>get_rough_chart</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/get_rough_chart.html">get_rough_chart</a></span>(p, options, <span class="dt">family =</span> <span class="st">"Schoolbell"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/get_rough_chart.html">get_rough_chart</a></span>(p, options, <span class="dt">family =</span> <span class="st">"Schoolbell"</span>)</a></code></pre></div>
 <p>To use Google fonts, try the fantastic <a href="https://github.com/yixuan/showtext"><code>showtext</code></a> package.</p>
 </div>
 <div id="font-size-font_size_booster" class="section level2">
@@ -255,7 +270,8 @@
 </li>
       <li>
 <a href="#options">Options</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#fill-style-fill_style-hachure-vs-solid">Fill Style — <code>fill_style</code> (hachure vs solid)</a></li>
+<li><a href="#how-to-write-the-options-list">How to write the <code>options</code> list</a></li>
+      <li><a href="#fill-style-fill_style-hachure-vs-solid">Fill Style — <code>fill_style</code> (hachure vs solid)</a></li>
       <li><a href="#fill-weight-fill_weight">Fill Weight — <code>fill_weight</code></a></li>
       <li><a href="#roughness-roughness">Roughness — <code>roughness</code></a></li>
       <li><a href="#bowing-bowing">Bowing — <code>bowing</code></a></li>

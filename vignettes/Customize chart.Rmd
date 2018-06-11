@@ -108,6 +108,18 @@ The second argument is a list of lists of `ggrough` options (one list for `defau
 
 Lastly, you have direct access to two helper arguments that let you change the font (`family`) and the font size (`font_size_booster`).
 
+## How to write the `options` list
+
+The example below changes: 
+
+- `roughness` for the `Background` (`plot.background`, `panel.background`, `panel.grid`...)
+- `fill_style`, `bowing` and `roughness` for all `GeomCol`
+
+```{r, eval=FALSE, echo=TRUE}
+options <- list(
+  Background=list(roughness=12),
+  GeomCol=list(fill_style="solid", bowing=0, roughness=6))
+```
 
 ## Fill Style — `fill_style` (hachure vs solid)
 
