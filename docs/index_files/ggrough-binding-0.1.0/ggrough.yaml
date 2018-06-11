@@ -1,0 +1,14 @@
+# (uncomment to add a dependency)
+# dependencies:
+#  - name:
+#    version:
+#    src:
+#    script:
+#    stylesheet:
+
+dependencies:
+  - name: roughjs
+    version: 2.0.1
+    src: htmlwidgets/lib/rough
+    script:
+      - rough.min.js

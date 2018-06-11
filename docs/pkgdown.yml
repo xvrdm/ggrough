@@ -1,0 +1,6 @@
+pandoc: 2.1.2
+pkgdown: 1.1.0.9000
+pkgdown_sha: 4496ae44fa96b35fc9c3b61d1e622dae82ca047f
+articles:
+  Customize chart: Customize chart.html
+

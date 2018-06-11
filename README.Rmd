@@ -1,0 +1,66 @@
+---
+title: ""
+output:
+  html_document
+self_contained: TRUE
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+library(dplyr)
+```
+
+
+<img style="margin:40px 0 20px 0;" src="reference/figures/title.png" />
+
+## What is `ggrough`?
+
+`ggrough` is an R package that converts your [`ggplot2`](http://ggplot2.tidyverse.org) plots to rough/sketchy charts, using the excellent javascript [`roughjs`](http://roughjs.com) library.
+
+```{r cars, fig.height=5, fig.width=12}
+library(ggplot2)
+count(mtcars, carb) %>%
+  ggplot(aes(carb, n)) +
+  geom_col() + 
+  labs(title="Number of cars by carburator count") + theme_minimal(base_size = 16) -> p
+p
+```
+
+```{r fig.height=4, fig.width=12 }
+library(ggrough)
+options <- list(GeomCol=list(fill_style="hachure", gap=6, roughness=1.5))
+get_rough_chart(p, options, width = 12.5, height = 5)
+```
+
+## How to install
+
+## How to use
+
+## Word of caution
+
+`ggrough` is a **work in progress** and **still has big bugs**. Contributions are welcome!
+
+`ggrough` works "ok" with RStudio Viewer. However you need to redraw your chart everytime you change the size of the Viewer tab and the charts will redraw when you try to copy it via `Export -> Save As Image`. The latter can be annoying since some `roughjs` settings can add a lot of randomness. 
+
+`ggrough` doesn't work well with Rmarkdown files yet. For example, it can only generate if you have multiple chart it overlays them on top of each other.
+
+## Under the hood
+
+`ggrough` is an [htmlwidget](http://htmlwidgets.org). It converts your [`ggplot2`](http://ggplot2.tidyverse.org) chart to SVG using the package [`svglite`](http://r-lib.github.io/svglite/) then parse the different elements (`<rect>`, `<path>`, `<circle>`...) to create a chart in a [HTML Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial) element^[`roughjs` can also render to SVG. This will be supported by `ggrough` in the future] with [`roughjs`](http://roughjs.com). 
+
+An article explaining how `ggrough` works is in the making, to help potential contributors get started.
+
+## Thanks
+
+This package is only possible thanks to the massive work of:
+
+- [Kent Russell — twitter:timelyportfolio](https://twitter.com/timelyportfolio) and [Bob Rudis — twitter:hrbrmstr](https://twitter.com/hrbrmstr) for the enormous educational content they created or shared about `htmlwidget` and `ggplot2`.
+- [Preet Shihn — twitter:preetster)](https://twitter.com/preetster) and all the contributors of [`roughjs`](http://roughjs.com).
+- [Hadley Wickham — twitter:hadleywickham)](https://twitter.com/hadleywickham) and all the contributors of [`ggplot2`](http://ggplot2.tidyverse.org).
+- [Lionel Henry — twitter:_lionelhenry](https://twitter.com/_lionelhenry) and all the contributors of [`svglite`](http://r-lib.github.io/svglite/)
