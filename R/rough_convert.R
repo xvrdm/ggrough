@@ -244,16 +244,16 @@ correct_font <- function(gg_build, family=NULL, font_size_booster=1) {
 
 parse_rough <- function(svg, geom) {
   rough_els <- list()
-  if (geom %in% c("GeomCol", "GeomTile", "Background")) {
+  if (geom %in% c("GeomCol", "GeomBar", "GeomTile", "Background")) {
     rough_els <- append(rough_els, parse_rects(svg))
   }
-  if (geom %in% c("GeomArea", "Background")) {
+  if (geom %in% c("GeomArea", "GeomViolin", "GeomSmooth", "Background")) {
     rough_els <- append(rough_els, parse_areas(svg))
   }
-  if (geom %in% c("GeomPoint", "Background")) {
+  if (geom %in% c("GeomPoint", "GeomJitter", "GeomDotPlot", "Background")) {
     rough_els <- append(rough_els, parse_circles(svg))
   }
-  if (geom %in% c("GeomLine", "Background")) {
+  if (geom %in% c("GeomLine", "GeomSmooth", "Background")) {
     rough_els <- append(rough_els, parse_lines(svg))
   }
   if (geom %in% c("Background")) {
