@@ -42,7 +42,7 @@ options <- list(
 get_rough_chart(p, options, family = "Homemade Apple", font_size_booster = 1.45)
 ```
 
-![](dl-jazz.png)
+![](https://raw.githubusercontent.com/xvrdm/ggrough/master/man/figures/dl-jazz.png)
 
 ## Blueprint
 
@@ -67,7 +67,7 @@ options <- list(
 get_rough_chart(p, options, family="Rock Salt", font_size_booster = 1.4)
 ```
 
-![](dl-blueprint.png)
+![](https://raw.githubusercontent.com/xvrdm/ggrough/master/man/figures/dl-blueprint.png)
 
 ## Kindergarten
 
@@ -98,7 +98,7 @@ options <- list(GeomArea=list(fill_style="hachure",
 get_rough_chart(p, options, family = "Schoolbell", font_size_booster = 2.4)
 ```
 
-![](dl-kindergarten.png)
+![](https://raw.githubusercontent.com/xvrdm/ggrough/master/man/figures/dl-kindergarten.png)
 
 # Options
 
