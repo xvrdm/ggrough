@@ -68,6 +68,6 @@ An article explaining how `ggrough` works is in the making, to help potential co
 This package is only possible thanks to the massive work of:
 
 - [Kent Russell — twitter:timelyportfolio](https://twitter.com/timelyportfolio) and [Bob Rudis — twitter:hrbrmstr](https://twitter.com/hrbrmstr) for the enormous educational content they created or shared about `htmlwidget` and `ggplot2`.
-- [Preet Shihn — twitter:preetster)](https://twitter.com/preetster) and all the contributors of [`roughjs`](http://roughjs.com).
-- [Hadley Wickham — twitter:hadleywickham)](https://twitter.com/hadleywickham) and all the contributors of [`ggplot2`](http://ggplot2.tidyverse.org).
+- [Preet Shihn — twitter:preetster](https://twitter.com/preetster) and all the contributors of [`roughjs`](http://roughjs.com).
+- [Hadley Wickham — twitter:hadleywickham](https://twitter.com/hadleywickham) and all the contributors of [`ggplot2`](http://ggplot2.tidyverse.org).
 - [Lionel Henry — twitter:_lionelhenry](https://twitter.com/_lionelhenry) and all the contributors of [`svglite`](http://r-lib.github.io/svglite/)
