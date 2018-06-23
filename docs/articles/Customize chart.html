@@ -179,11 +179,20 @@
 <a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">Background=</span><span class="kw">list</span>(<span class="dt">roughness=</span><span class="dv">12</span>),</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">GeomCol=</span><span class="kw">list</span>(<span class="dt">fill_style=</span><span class="st">"solid"</span>, <span class="dt">bowing=</span><span class="dv">0</span>, <span class="dt">roughness=</span><span class="dv">6</span>))</a></code></pre></div>
 </div>
-<div id="fill-style-fill_style-hachure-vs-solid" class="section level2">
+<div id="fill-style-fill_style" class="section level2">
 <h2 class="hasAnchor">
-<a href="#fill-style-fill_style-hachure-vs-solid" class="anchor"></a>Fill Style — <code>fill_style</code> (hachure vs solid)</h2>
-<p>For closed shapes (i.e rectangle, circle, closed paths…), you can choose between a plain solid fill and the hachure style.</p>
-<p>Default is <code>"solid"</code>.</p>
+<a href="#fill-style-fill_style" class="anchor"></a>Fill Style — <code>fill_style</code>
+</h2>
+<p>For closed shapes (i.e rectangle, circle, closed paths…), you can choose between:</p>
+<ul>
+<li><code>solid</code></li>
+<li><code>hachure</code></li>
+<li><code>cross-hatch</code></li>
+<li><code>zigzag</code></li>
+<li>
+<code>dots</code> (currently only work with GeomCol)</li>
+</ul>
+<p>Default is <code>solid</code>.</p>
 </div>
 <div id="fill-weight-fill_weight" class="section level2">
 <h2 class="hasAnchor">
@@ -271,7 +280,7 @@
       <li>
 <a href="#options">Options</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#how-to-write-the-options-list">How to write the <code>options</code> list</a></li>
-      <li><a href="#fill-style-fill_style-hachure-vs-solid">Fill Style — <code>fill_style</code> (hachure vs solid)</a></li>
+      <li><a href="#fill-style-fill_style">Fill Style — <code>fill_style</code></a></li>
       <li><a href="#fill-weight-fill_weight">Fill Weight — <code>fill_weight</code></a></li>
       <li><a href="#roughness-roughness">Roughness — <code>roughness</code></a></li>
       <li><a href="#bowing-bowing">Bowing — <code>bowing</code></a></li>

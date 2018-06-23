@@ -43,7 +43,8 @@ devtools::install_github("xvrdm/ggrough")
 ## How to use
 
 Call `get_rough_chart()`, using your ggplot2 chart as the first
-arguments. See the [options to customize your
+argument. [See this page for more ggrough examples and all the available
+options to customize your
 output](https://xvrdm.github.io/ggrough/articles/Customize%20chart.html).
 
 ## Word of caution

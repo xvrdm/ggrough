@@ -121,11 +121,17 @@ options <- list(
   GeomCol=list(fill_style="solid", bowing=0, roughness=6))
 ```
 
-## Fill Style — `fill_style` (hachure vs solid)
+## Fill Style — `fill_style`
 
-For closed shapes (i.e rectangle, circle, closed paths...), you can choose between a plain solid fill and the hachure style.
+For closed shapes (i.e rectangle, circle, closed paths...), you can choose between:
 
-Default is `"solid"`.
+- `solid`
+- `hachure`
+- `cross-hatch`
+- `zigzag`
+- `dots` (currently only work with GeomCol)
+
+Default is `solid`.
 
 ## Fill Weight — `fill_weight`
 
