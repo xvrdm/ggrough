@@ -98,17 +98,25 @@ function getFillObject(s) {
       fill: getFillRGB(s.style, alpha_over),
       fillStyle: fill_style
     }};
-    if (fill_style === "hachure") {
-      let hachureOptions = {
-          fillStyle: "hachure",
+    if (fill_style !== "solid") {
+      fillOptions = {
+        ...fillOptions,
+        ...{
           fillWeight: fill_weight,
-          hachureAngle: getHachureAngle(angle, angle_noise),
           hachureGap: getHachureGap(gap, gap_noise)
+        }};
+    }
+    if (fill_style === "dots") {
+      // Anything else than 1 seems to modify the position
+      fillOptions = {...fillOptions, ...{roughness: 1}};
+    }
+    if (fill_style !== "solid" && fill_style !== "dots") {
+      let hachureOptions = {
+          hachureAngle: getHachureAngle(angle, angle_noise)
       };
       fillOptions = {...fillOptions, ...hachureOptions};
     }
   }
-  console.log(fillOptions);
   return fillOptions;
 }
 
