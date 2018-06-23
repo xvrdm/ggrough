@@ -1,19 +1,23 @@
-ggrough R package
+ggRough
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## What is ggrough?
+<img style="margin:40px 0 20px 0;" src="https://raw.githubusercontent.com/xvrdm/ggrough/master/docs/reference/figures/title.png" />
 
-ggrough is an R package that converts your
-[ggplot2](http://ggplot2.tidyverse.org) plots to rough/sketchy charts,
-using the excellent javascript [roughjs](http://roughjs.com) library.
+## What is `ggrough`?
+
+`ggrough` is an R package that converts your
+[`ggplot2`](http://ggplot2.tidyverse.org) plots to rough/sketchy charts,
+using the excellent javascript [`roughjs`](http://roughjs.com) library.
 
 ``` r
 library(ggplot2)
-count(mtcars, cyl) %>%
-  ggplot(aes(cyl, n)) +
-  geom_col() -> p
+count(mtcars, carb) %>%
+  ggplot(aes(carb, n)) +
+  geom_col() + 
+  labs(title="Number of cars by carburator count") + 
+  theme_grey(base_size = 16) -> p 
 p
 ```
 
@@ -22,21 +26,72 @@ p
 ``` r
 library(ggrough)
 options <- list(
-  multi=list(roughness=10, alpha_over=1), 
-  GeomCol=list(fill_style="hachure", gap=6, roughness=1.5))
+  Background=list(roughness=8),
+  GeomCol=list(fill_style="zigzag", angle_noise=0.5, fill_weight=2))
 get_rough_chart(p, options)
 ```
 
-<!--html_preserve-->
+![](https://raw.githubusercontent.com/xvrdm/ggrough/master/man/figures/homepage_eg.png)
 
-<div id="htmlwidget-c3008936995308ae76fc" class="ggrough html-widget" style="width:960px;height:576px;">
+## How to install
 
-</div>
+``` r
+install.packages("devtools") # if you have not installed "devtools" package
+devtools::install_github("xvrdm/ggrough")
+```
 
-<script type="application/json" data-for="htmlwidget-c3008936995308ae76fc">{"x":{"data":[{"height":"388.80","style":{"stroke-width":"1.07","stroke":"#FFFFFF","fill":"#FFFFFF"},"width":"648.00","x":"0.00","y":"-0.00","shape":"rect","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"350.59","style":{"stroke-width":"1.07","stroke":"none","fill":"#EBEBEB"},"width":"608.74","x":"33.78","y":"5.48","shape":"rect","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"250.42","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"171.75","x":"61.45","y":"89.71","shape":"rect","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"159.36","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"171.75","x":"252.28","y":"180.78","shape":"rect","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"318.72","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"171.75","x":"443.10","y":"21.42","shape":"rect","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M33.78,283.22 642.52,283.22Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M33.78,169.39 642.52,169.39Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M33.78,55.56 642.52,55.56Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M99.61,356.07 99.61,5.48Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M195.03,356.07 195.03,5.48Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M290.44,356.07 290.44,5.48Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M385.86,356.07 385.86,5.48Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M481.27,356.07 481.27,5.48Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M576.68,356.07 576.68,5.48Z","style":{"stroke-width":"0.53","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M33.78,340.14 642.52,340.14Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M33.78,226.31 642.52,226.31Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M33.78,112.48 642.52,112.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M51.90,356.07 51.90,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M147.32,356.07 147.32,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M242.73,356.07 242.73,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M338.15,356.07 338.15,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M433.56,356.07 433.56,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M528.98,356.07 528.98,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M624.39,356.07 624.39,5.48Z","style":{"stroke-width":"1.07","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M31.04,340.14 33.78,340.14Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M31.04,226.31 33.78,226.31Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M31.04,112.48 33.78,112.48Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M51.90,358.81 51.90,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M147.32,358.81 147.32,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M242.73,358.81 242.73,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M338.15,358.81 338.15,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M433.56,358.81 433.56,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M528.98,358.81 528.98,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"points":"M624.39,358.81 624.39,356.07Z","style":{"stroke-width":"1.07","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"0","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"23.84","y":"343.35","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"5","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"23.84","y":"229.53","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"10","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"10.01px","x":"18.83","y":"115.70","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"3","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"49.40","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"4","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"144.82","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"5","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"240.23","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"6","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"335.65","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"7","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"431.06","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"8","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"526.47","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"9","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"8.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"5.01px","x":"621.89","y":"367.44","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"cyl","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"11.00px","font-family":"Arial"},"textLength":"13.44px","x":"331.43","y":"380.80","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"content":"n","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"11.00px","font-family":"Arial"},"textLength":"6.12px","transform":"translate(13.35,183.83) rotate(-90)","shape":"text","geom":"multi","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":10,"bowing":1,"simplification":0,"angle":60,"gap":4,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"250.42","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"171.75","x":"61.45","y":"89.71","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"hachure","fill_weight":4,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"gap":6,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"159.36","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"171.75","x":"252.28","y":"180.78","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"hachure","fill_weight":4,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"gap":6,"angle_noise":0,"gap_noise":0,"alpha_over":1}},{"height":"318.72","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"171.75","x":"443.10","y":"21.42","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"hachure","fill_weight":4,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"gap":6,"angle_noise":0,"gap_noise":0,"alpha_over":1}}]},"evals":[],"jsHooks":[]}</script>
+## How to use
 
-<!--/html_preserve-->
+Call `get_rough_chart()`, using your ggplot2 chart as the first
+arguments. See the [options to customize your
+output](https://xvrdm.github.io/ggrough/articles/Customize%20chart.html).
+
+## Word of caution
+
+`ggrough` is a **work in progress** and **still has big bugs**.
+Contributions are welcome\!
+
+`ggrough` works “ok” with RStudio Viewer. However you need to redraw
+your chart everytime you change the size of the Viewer tab and the
+charts will redraw when you try to copy it via `Export -> Save As
+Image`. The latter can be annoying since some `roughjs` settings can add
+a lot of randomness.
+
+`ggrough` doesn’t work well with Rmarkdown files yet. For example, it
+can only generate one chart per document. If you have multiple charts it
+overlays them on top of each other.
 
 ## Under the hood
 
-ggrough is an [htmlwidget](http://htmlwidgets.org).
+`ggrough` is an [htmlwidget](http://htmlwidgets.org). It converts your
+[`ggplot2`](http://ggplot2.tidyverse.org) chart to SVG using the package
+[`svglite`](http://r-lib.github.io/svglite/) then parse the different
+elements (`<rect>`, `<path>`, `<circle>`…) to create a chart in a [HTML
+Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial)
+element\[1\] with [`roughjs`](http://roughjs.com).
+
+An article explaining how `ggrough` works is in the making, to help
+potential contributors get started.
+
+## Thanks
+
+This package is only possible thanks to the massive work of:
+
+  - [Kent Russell —
+    twitter:timelyportfolio](https://twitter.com/timelyportfolio) and
+    [Bob Rudis — twitter:hrbrmstr](https://twitter.com/hrbrmstr) for the
+    enormous educational content they created or shared about
+    `htmlwidget` and `ggplot2`.
+  - [Preet Shihn — twitter:preetster](https://twitter.com/preetster) and
+    all the contributors of [`roughjs`](http://roughjs.com).
+  - [Hadley Wickham —
+    twitter:hadleywickham](https://twitter.com/hadleywickham) and all
+    the contributors of [`ggplot2`](http://ggplot2.tidyverse.org).
+  - [Lionel Henry —
+    twitter:\_lionelhenry](https://twitter.com/_lionelhenry) and all the
+    contributors of [`svglite`](http://r-lib.github.io/svglite/)
+
+<!-- end list -->
+
+1.  `roughjs` can also render to SVG. This will be supported by
+    `ggrough` in the future

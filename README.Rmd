@@ -1,7 +1,8 @@
 ---
-title: ""
+title: "ggRough"
 output:
-  html_document
+  github_document:
+    html_preview: true
 self_contained: TRUE
 ---
 
@@ -17,7 +18,7 @@ library(dplyr)
 ```
 
 
-<img style="margin:40px 0 20px 0;" src="reference/figures/title.png" />
+<img style="margin:40px 0 20px 0;" src="https://raw.githubusercontent.com/xvrdm/ggrough/master/docs/reference/figures/title.png" />
 
 ## What is `ggrough`?
 
@@ -28,15 +29,20 @@ library(ggplot2)
 count(mtcars, carb) %>%
   ggplot(aes(carb, n)) +
   geom_col() + 
-  labs(title="Number of cars by carburator count") + theme_minimal(base_size = 16) -> p
+  labs(title="Number of cars by carburator count") + 
+  theme_grey(base_size = 16) -> p 
 p
 ```
 
-```{r fig.height=4, fig.width=12 }
+```{r eval=FALSE, eval=FALSE, echo=TRUE}
 library(ggrough)
-options <- list(GeomCol=list(fill_style="hachure", gap=6, roughness=1.5))
-get_rough_chart(p, options, width = 12.5, height = 5)
+options <- list(
+  Background=list(roughness=8),
+  GeomCol=list(fill_style="zigzag", angle_noise=0.5, fill_weight=2))
+get_rough_chart(p, options)
 ```
+
+![](https://raw.githubusercontent.com/xvrdm/ggrough/master/man/figures/homepage_eg.png)
 
 ## How to install
 
