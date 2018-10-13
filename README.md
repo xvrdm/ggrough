@@ -13,6 +13,7 @@ using the excellent javascript [`roughjs`](http://roughjs.com) library.
 
 ``` r
 library(ggplot2)
+library(ggrough)
 count(mtcars, carb) %>%
   ggplot(aes(carb, n)) +
   geom_col() + 
@@ -24,7 +25,6 @@ p
 ![](README_files/figure-gfm/cars-1.png)<!-- -->
 
 ``` r
-library(ggrough)
 options <- list(
   Background=list(roughness=8),
   GeomCol=list(fill_style="zigzag", angle_noise=0.5, fill_weight=2))
