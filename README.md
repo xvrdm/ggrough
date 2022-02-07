@@ -5,9 +5,11 @@ ggRough
 
 <img style="margin:40px 0 20px 0;" src="https://raw.githubusercontent.com/xvrdm/ggrough/master/docs/reference/figures/title.png" />
 
-## What is `ggrough`?
+## Read this first
 
-> To my great sorrow, I haven't found the time to work on ggrough in 4 years. Please be aware that this project doesn't work with modern version of {ggplot2} (although the needed changes might not be big and [some people have tried to fix it](https://stackoverflow.com/questions/tagged/ggrough)). If you came here, there are other more recent projects that you might find of interest (e.g. [{roughnet}](https://github.com/schochastics/roughnet), [{roughsf}](https://github.com/schochastics/roughsf) and [maybe more](https://github.com/search?q=rough+language%3Ar&type=repositories)). I will set the repo in 'read-only' mode for now, until I have more opportunities to work on open source (meaning "when the kids are a bit older"). I still believe that a nice way to create sketchy visualisations would be a neat addition to the ggplot2 ecosystem.
+> To my great sorrow, I haven't found the time to work on ggrough in 4 years. Please be aware that this project doesn't work with modern version of {ggplot2} (although the needed changes might not be big and [some people have tried to fix it](https://stackoverflow.com/questions/tagged/ggrough)). If you came here, there are other more recent projects that you might find of interest (e.g. [{roughnet}](https://github.com/schochastics/roughnet), [{roughsf}](https://github.com/schochastics/roughsf) and [maybe more](https://github.com/search?q=rough+language%3Ar&type=repositories)). I will set the repo in 'read-only' mode for now (feel free to fork), until I have more opportunities to work on open source (meaning "when the kids are a bit older"). I still believe that a nice way to create sketchy visualisations would be a neat addition to the ggplot2 ecosystem.
+
+## What is `ggrough`?
 
 `ggrough` is an R package that converts your
 [`ggplot2`](http://ggplot2.tidyverse.org) plots to rough/sketchy charts,
